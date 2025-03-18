@@ -10,7 +10,7 @@
   <p align="center">
     <i>Developed by <strong>Md Majharul Islam</strong></i><br>
     <a href="https://github.com/dev-majharul">GitHub</a> •
-    <a href="https://www.linkedin.com/in/md-majharul-islam-samir/">LinkedIn</a> •
+    <a href="https://www.linkedin.com/in/md-majharul-islam-samir/">LinkedIn</a> 
     <a href="tel:+8809696039963">Contact</a>
   </p>
 </div>
@@ -395,30 +395,39 @@ Contributions are always welcome! Please follow these steps:
     <tr>
       <td align="center">
         <a href="https://github.com/dev-majharul">
-          <img src="https://avatars.githubusercontent.com/u/12345678?v=4" width="100px;" alt="Developer 1" style="border-radius:50%"/><br />
-          <sub><b>John Doe</b></sub>
+          <img src="https://lh3.googleusercontent.com/a/ACg8ocJSMJBzEPWjT5hg_X4g6t3TogwisvImtxY1Ugd6h6PI7eQ_wvhTDQ=s260-c-no" width="100px;" alt="Developer 1" style="border-radius:50%"/><br />
+          <sub><b>Md Majhaurl Islam </b></sub>
         </a><br />
         <sub>Lead Developer</sub><br />
-        <a href="https://twitter.com/dev1"><img src="https://img.shields.io/badge/Twitter-1DA1F2?style=flat-square&logo=twitter&logoColor=white" alt="Twitter" /></a>
+        <a href="https://twitter.com/MD_Majharul_BD"><img src="https://img.shields.io/badge/Twitter-1DA1F2?style=flat-square&logo=twitter&logoColor=white" alt="Twitter" /></a>
         <a href="https://linkedin.com/in/dev1"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=flat-square&logo=linkedin&logoColor=white" alt="LinkedIn" /></a>
       </td>
       <td align="center">
-        <a href="https://github.com/developer2">
-          <img src="https://avatars.githubusercontent.com/u/87654321?v=4" width="100px;" alt="Developer 2" style="border-radius:50%"/><br />
-          <sub><b>Jane Smith</b></sub>
+        <a href="https://github.com/dev-majharul">
+          <img src="https://lh3.googleusercontent.com/a/ACg8ocJSMJBzEPWjT5hg_X4g6t3TogwisvImtxY1Ugd6h6PI7eQ_wvhTDQ=s260-c-no" width="100px;" alt="Developer 2" style="border-radius:50%"/><br />
+          <sub><b>Md Majharul Islam</b></sub>
         </a><br />
         <sub>Frontend Developer</sub><br />
-        <a href="https://twitter.com/dev2"><img src="https://img.shields.io/badge/Twitter-1DA1F2?style=flat-square&logo=twitter&logoColor=white" alt="Twitter" /></a>
+        <a href="https://twitter.com/MD_Majharul_BD"><img src="https://img.shields.io/badge/Twitter-1DA1F2?style=flat-square&logo=twitter&logoColor=white" alt="Twitter" /></a>
         <a href="https://linkedin.com/in/dev2"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=flat-square&logo=linkedin&logoColor=white" alt="LinkedIn" /></a>
       </td>
       <td align="center">
-        <a href="https://github.com/developer3">
-          <img src="https://avatars.githubusercontent.com/u/13579246?v=4" width="100px;" alt="Developer 3" style="border-radius:50%"/><br />
-          <sub><b>Alex Johnson</b></sub>
+        <a href="https://github.com/dev-majharul">
+          <img src="https://lh3.googleusercontent.com/a/ACg8ocJSMJBzEPWjT5hg_X4g6t3TogwisvImtxY1Ugd6h6PI7eQ_wvhTDQ=s260-c-no" width="100px;" alt="Developer 3" style="border-radius:50%"/><br />
+          <sub><b>Md Majharul Islam</b></sub>
+        </a><br />
+        <sub>Backend Developer</sub><br />
+        <a href="https://twitter.com/MD_Majharul_BD"><img src="https://img.shields.io/badge/Twitter-1DA1F2?style=flat-square&logo=twitter&logoColor=white" alt="Twitter" /></a>
+        <a href="https://linkedin.com/in/dev3"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=flat-square&logo=linkedin&logoColor=white" alt="LinkedIn" /></a>
+      </td>
+      <td align="center">
+        <a href="https://github.com/dev-siyam">
+          <img src="https://media.licdn.com/dms/image/v2/D5610AQGI0MF4cuCu_A/image-shrink_1280/B56ZU6IqFTGsAM-/0/1740437104595?e=1742889600&v=beta&t=yTNOcjOSMmM4pRSLPLYblQUT9l0TCUSBHJYxXFJ9hVE" width="100px;" alt="Developer 3" style="border-radius:50%"/><br />
+          <sub><b>Md Siyam</b></sub>
         </a><br />
         <sub>Backend Developer</sub><br />
         <a href="https://twitter.com/dev3"><img src="https://img.shields.io/badge/Twitter-1DA1F2?style=flat-square&logo=twitter&logoColor=white" alt="Twitter" /></a>
-        <a href="https://linkedin.com/in/dev3"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=flat-square&logo=linkedin&logoColor=white" alt="LinkedIn" /></a>
+        <a href="https://linkedin.com/in/md-majharul-islam-samir"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=flat-square&logo=linkedin&logoColor=white" alt="LinkedIn" /></a>
       </td>
     </tr>
   </table>
