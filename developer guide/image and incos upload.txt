@@ -1,0 +1,22 @@
+I. Created three key directories for static assets:
+• client/public/images - For general images accessible via the public URL
+• client,'public/icons - For favicons and app icons
+• client/src/assets - For images that need to be imported directly in React components
+2. Updated client/publåc/index. html to reference favicons from the new icons directory.
+3. Created a manifest.json file with references to the icon paths for PWA support
+4. Added a route in server/index.js to serve uploaded images:
+
+
+For favicon and app icons:
+1. Place your favicon.ico, apple-touch-icon.png, log0192.png and log0512.png in the client/public/icons folder.
+2. They'll be automatically referenced by the updated index.html and manifest.json files.
+For site images:
+I. Put images used in your React app in client/src/assets folder
+2. Import them in your components like:
+
+For user uploaded images:
+I. These will automatically be saved to the server's uploads directory when users upload them
+2. They can be accessed at path
+3. The server-side route I added makes them publicly accessible
+If you need a logo in the Ul right away, create it and place it in the appropriate directory based on where you'll use it. For example, if it's part of the site
+header, put it in client/src/assets and import it into your header component.

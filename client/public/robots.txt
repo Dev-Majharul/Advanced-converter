@@ -1,0 +1,10 @@
+# https://www.robotstxt.org/robotstxt.html
+User-agent: *
+Allow: /
+
+# Disallow temporary and processing URLs
+Disallow: /api/
+Disallow: /uploads/
+Disallow: /.netlify/functions/
+
+Sitemap: https://your-domain.com/sitemap.xml 

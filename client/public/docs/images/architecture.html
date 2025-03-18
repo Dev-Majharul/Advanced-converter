@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced File Converter - Architecture</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #1a1a2e, #16213e);
+            color: #fff;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        h1 {
+            margin-bottom: 40px;
+            text-align: center;
+            font-size: 2.5rem;
+        }
+        .diagram-container {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 10px;
+            padding: 30px;
+            margin-bottom: 40px;
+            overflow-x: auto;
+        }
+        svg {
+            max-width: 100%;
+            height: auto;
+        }
+        .rect {
+            fill: #2d3748;
+            stroke: #6c63ff;
+            stroke-width: 2;
+            rx: 6;
+            ry: 6;
+        }
+        .text {
+            fill: #fff;
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            font-size: 14px;
+            text-anchor: middle;
+        }
+        .arrow {
+            stroke: #6c63ff;
+            stroke-width: 2;
+            marker-end: url(#arrowhead);
+        }
+        .description {
+            font-size: 16px;
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+        .section {
+            margin-bottom: 40px;
+        }
+        .section h2 {
+            color: #6c63ff;
+            margin-bottom: 20px;
+        }
+        .small-text {
+            font-size: 12px;
+            fill: #f0f0f0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Advanced File Converter - Architecture</h1>
+        
+        <div class="section">
+            <p class="description">
+                This architecture diagram illustrates the system's design, showing how the client-side React application 
+                communicates with the Node.js server through HTTP and WebSocket connections. The diagram highlights the 
+                key components and data flow in the file conversion process, including our new 3D UI components.
+            </p>
+        </div>
+        
+        <div class="diagram-container">
+            <svg width="800" height="800" viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+                        <polygon points="0 0, 10 3.5, 0 7" fill="#6c63ff" />
+                    </marker>
+                </defs>
+                
+                <!-- Client Box -->
+                <rect class="rect" x="100" y="50" width="200" height="80" />
+                <text class="text" x="200" y="90">Client (React)</text>
+                
+                <!-- Server Box -->
+                <rect class="rect" x="500" y="50" width="200" height="80" />
+                <text class="text" x="600" y="90">Server (Node.js)</text>
+                
+                <!-- HTTP Connection -->
+                <line class="arrow" x1="200" y1="130" x2="200" y2="160" />
+                <line class="arrow" x1="200" y1="160" x2="600" y2="160" />
+                <line class="arrow" x1="600" y1="160" x2="600" y2="130" />
+                <text class="text" x="400" y="150">HTTP Requests (RESTful API)</text>
+                
+                <!-- WebSocket Connection -->
+                <line class="arrow" x1="200" y1="185" x2="200" y2="200" />
+                <line class="arrow" x1="200" y1="200" x2="600" y2="200" />
+                <line class="arrow" x1="600" y1="200" x2="600" y2="185" />
+                <text class="text" x="400" y="190">WebSocket (Socket.io)</text>
+                
+                <!-- React Components -->
+                <rect class="rect" x="100" y="250" width="200" height="80" />
+                <text class="text" x="200" y="290">React Components</text>
+                
+                <!-- Express Endpoints -->
+                <rect class="rect" x="500" y="250" width="200" height="80" />
+                <text class="text" x="600" y="290">Express Endpoints</text>
+                
+                <!-- UI Layer -->
+                <rect class="rect" x="100" y="350" width="200" height="140" />
+                <text class="text" x="200" y="380">User Interface</text>
+                
+                <!-- UI Details -->
+                <text class="small-text" x="200" y="410">- Material UI</text>
+                <text class="small-text" x="200" y="425">- File Uploaders</text>
+                <text class="small-text" x="200" y="440">- Conversion Options</text>
+                <text class="small-text" x="200" y="455">- Framer Motion Animations</text>
+                <text class="small-text" x="200" y="470">- 3D Components</text>
+                
+                <!-- 3D Components -->
+                <rect class="rect" x="100" y="510" width="200" height="140" />
+                <text class="text" x="200" y="540">3D Components</text>
+                <text class="small-text" x="200" y="565">- SceneContainer</text>
+                <text class="small-text" x="200" y="580">- FloatingModel</text>
+                <text class="small-text" x="200" y="595">- FloatingText</text>
+                <text class="small-text" x="200" y="610">- ConverterModelSvg</text>
+                <text class="small-text" x="200" y="625">- ParticleBackground</text>
+                
+                <!-- Processing Engines -->
+                <rect class="rect" x="500" y="380" width="200" height="80" />
+                <text class="text" x="600" y="420">Processing Engines</text>
+                
+                <!-- Engine Types -->
+                <rect class="rect" x="500" y="510" width="200" height="100" />
+                <text class="text" x="600" y="540">Conversion Libraries</text>
+                <text class="small-text" x="600" y="565">- Sharp (Images)</text>
+                <text class="small-text" x="600" y="580">- FFmpeg (Videos)</text>
+                <text class="small-text" x="600" y="595">- PDF-lib (PDFs)</text>
+                
+                <!-- Storage Layer -->
+                <rect class="rect" x="500" y="650" width="200" height="80" />
+                <text class="text" x="600" y="680">File Storage</text>
+                <text class="small-text" x="600" y="700">temp / uploads / cache</text>
+                
+                <!-- Connecting Arrows -->
+                <line class="arrow" x1="200" y1="330" x2="200" y2="350" />
+                <line class="arrow" x1="600" y1="330" x2="600" y2="380" />
+                <line class="arrow" x1="200" y1="490" x2="200" y2="510" />
+                <line class="arrow" x1="600" y1="460" x2="600" y2="510" />
+                <line class="arrow" x1="600" y1="610" x2="600" y2="650" />
+            </svg>
+        </div>
+        
+        <div class="section">
+            <h2>Key Components</h2>
+            <ul>
+                <li><strong>Client (React)</strong>: The front-end web application built with React that provides the user interface.</li>
+                <li><strong>Server (Node.js)</strong>: The back-end service built with Node.js and Express that handles file processing.</li>
+                <li><strong>Communication Channels</strong>: HTTP requests for file uploads/downloads and Socket.io for real-time progress updates.</li>
+                <li><strong>UI Components</strong>: Material UI with enhanced animations using Framer Motion and interactive 3D elements.</li>
+                <li><strong>3D Visualization</strong>: Three.js integration via React Three Fiber for immersive UI components and visualization.</li>
+                <li><strong>Processing Engines</strong>: Specialized libraries for handling different file types (Sharp, FFmpeg, PDF-lib).</li>
+                <li><strong>Storage</strong>: Temporary and persistent storage for uploaded and converted files.</li>
+            </ul>
+        </div>
+        
+        <div class="section">
+            <h2>Data Flow</h2>
+            <ol>
+                <li>User interacts with the React UI featuring animated 3D elements</li>
+                <li>User selects files and sets conversion options in the React UI</li>
+                <li>Files are uploaded to the server via HTTP POST requests</li>
+                <li>Server validates the files and creates conversion jobs</li>
+                <li>Processing engines convert the files based on specified options</li>
+                <li>Progress updates are sent to the client in real-time via Socket.io</li>
+                <li>Converted files are stored temporarily and made available for download</li>
+                <li>User receives completion notification with animated feedback and can download the results</li>
+            </ol>
+        </div>
+        
+        <div class="section">
+            <h2>3D Component Architecture</h2>
+            <p class="description">
+                The enhanced UI leverages Three.js through React Three Fiber to create interactive 3D components:
+            </p>
+            <ul>
+                <li><strong>SceneContainer</strong>: Base component for all 3D scenes with camera, lighting, and environment setup</li>
+                <li><strong>FloatingModel</strong>: Animated 3D objects with distortion effects and dynamic lighting</li>
+                <li><strong>FloatingText</strong>: Text with character-by-character animations and glow effects</li>
+                <li><strong>ConverterModelSvg</strong>: SVG-based animated illustration of the conversion process</li>
+                <li><strong>ParticleBackground</strong>: Dynamic particle system for creating depth and atmosphere</li>
+            </ul>
+            <p class="description">
+                These components are integrated with Material UI and Framer Motion to create a cohesive, modern user experience
+                with smooth transitions and interactive elements.
+            </p>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Key Components</h2>
+        <ul>
+            <li><strong>Client (React)</strong>: The front-end web application built with React that provides the user interface.</li>
+            <li><strong>Server (Node.js)</strong>: The back-end service built with Node.js and Express that handles file processing.</li>
+            <li><strong>Communication Channels</strong>: HTTP requests for file uploads/downloads and Socket.io for real-time progress updates.</li>
+            <li><strong>UI Components</strong>: Material UI with enhanced animations using Framer Motion and interactive 3D elements.</li>
+            <li><strong>3D Visualization</strong>: Three.js integration via React Three Fiber for immersive UI components and visualization.</li>
+            <li><strong>PDF Editor</strong>: Advanced PDF editing capabilities using React-PDF and PDF-lib for document manipulation.</li>
+            <li><strong>Processing Engines</strong>: Specialized libraries for handling different file types (Sharp, FFmpeg, PDF-lib).</li>
+            <li><strong>Storage</strong>: Temporary and persistent storage for uploaded and converted files.</li>
+        </ul>
+    </div>
+    
+    <div class="section">
+        <h2>Data Flow</h2>
+        <ol>
+            <li>User interacts with the React UI featuring animated 3D elements</li>
+            <li>User selects files and sets conversion options in the React UI</li>
+            <li>Files are uploaded to the server via HTTP POST requests</li>
+            <li>Server validates the files and creates conversion jobs</li>
+            <li>Processing engines convert the files based on specified options</li>
+            <li>Progress updates are sent to the client in real-time via Socket.io</li>
+            <li>Converted files are stored temporarily and made available for download</li>
+            <li>User receives completion notification with animated feedback and can download the results</li>
+            <li>For PDF editing, users can make changes directly in the browser using the PDF Editor</li>
+        </ol>
+    </div>
+    
+    <div class="section">
+        <h2>PDF Editing Features</h2>
+        <p class="description">
+            The application includes a comprehensive PDF editing module with the following capabilities:
+        </p>
+        <ul>
+            <li><strong>Text Editing</strong>: Add, edit, or delete text within PDFs</li>
+            <li><strong>Image Insertion</strong>: Insert images, shapes, and other graphical elements</li>
+            <li><strong>Annotations</strong>: Add comments, highlights, and other annotation types</li>
+            <li><strong>Drawing</strong>: Free-hand drawing tools for signatures and markups</li>
+            <li><strong>Form Filling</strong>: Fill out and save PDF forms</li>
+            <li><strong>Page Management</strong>: Reorder, rotate, or delete pages</li>
+        </ul>
+        <p class="description">
+            The PDF editor is built using React-PDF for viewing and PDF-lib for manipulation, providing
+            a seamless in-browser editing experience without requiring any additional software.
+        </p>
+    </div> 
+</body>
+</html> 

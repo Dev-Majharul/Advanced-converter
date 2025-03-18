@@ -1,0 +1,61 @@
++---------------------+         +----------------------+
+|                     |         |                      |
+|    Client (React)   |         |   Server (Node.js)   |
+|                     |         |                      |
++----------+----------+         +-----------+----------+
+           |                                |
+           |                                |
+           |   HTTP Requests (RESTful API)  |
+           +--------------------------------+
+           |                                |
+           |                                |
+           |    WebSocket (Socket.io)       |
+           +--------------------------------+
+           |                                |
+           |                                |
++----------v----------+         +-----------v----------+
+|                     |         |                      |
+|   React Components  |         |   Express Endpoints  |
+|                     |         |                      |
++----------+----------+         +-----------+----------+
+           |                                |
+           |                                |
++----------v----------+         +-----------v----------+
+|                     |         |                      |
+|    User Interface   |         |  Processing Engines  |
+|                     |         |                      |
++----------+----------+         +-----------+----------+
+  - Material UI                             |
+  - File Uploaders                          |
+  - Conversion Options                      |
+  - Framer Motion Animations                |
+  - Interactive 3D Elements                 |
+  - PDF Editor                              |
+           |                                |
+           |                                |
++----------v----------+         +-----------v----------+
+|                     |         |                      |
+|   3D Components     |         |   Sharp (Images)     |
+|                     |         |   FFmpeg (Videos)    |
++---------------------+         |   PDF-lib (PDFs)     |
+  - SceneContainer              |                      |
+  - FloatingModel               +----------+----------+
+  - FloatingText                           |
+  - ConverterModelSvg                      |
+  - ParticleBackground                     |
+                                 +-----------v----------+
+                                 |                      |
++---------------------+          |   Temporary Storage  |
+|                     |          |   Output Files       |
+|   PDF Editor        |          |                      |
+|                     |          +----------------------+
++---------------------+
+  - Text Editing
+  - Image Insertion
+  - Annotations
+  - Drawing Tools
+  - Form Filling
+  - Page Management 
+
+
+  

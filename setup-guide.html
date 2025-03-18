@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced File Converter - Setup Guide</title>
+    <style>
+        :root {
+            --primary: #6C63FF;
+            --secondary: #3B82F6;
+            --success: #10B981;
+            --warning: #F59E0B;
+            --danger: #EF4444;
+            --dark: #1F2937;
+            --light: #F9FAFB;
+        }
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f5f7fa;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 2rem 0;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        header p {
+            font-size: 1.25rem;
+            opacity: 0.9;
+        }
+        
+        section {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        h2 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #eaeaea;
+        }
+        
+        h3 {
+            color: var(--dark);
+            margin: 1.5rem 0 0.5rem;
+        }
+        
+        p {
+            margin-bottom: 1rem;
+        }
+        
+        pre {
+            background-color: var(--dark);
+            color: white;
+            padding: 1rem;
+            border-radius: 4px;
+            overflow-x: auto;
+            margin: 1rem 0;
+        }
+        
+        code {
+            font-family: 'Courier New', Courier, monospace;
+            background-color: #f1f1f1;
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+            font-size: 0.9em;
+        }
+        
+        pre code {
+            background-color: transparent;
+            padding: 0;
+            color: #fff;
+        }
+        
+        ul, ol {
+            margin-left: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .note {
+            background-color: #e2e8f0;
+            border-left: 4px solid var(--primary);
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+        
+        .warning {
+            background-color: #fef3c7;
+            border-left: 4px solid var(--warning);
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+        
+        .step {
+            counter-increment: step-counter;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-left: 2.5rem;
+        }
+        
+        .step::before {
+            content: counter(step-counter);
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 1.8rem;
+            height: 1.8rem;
+            background-color: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+        
+        .tab-container {
+            margin: 1.5rem 0;
+        }
+        
+        .tab-buttons {
+            display: flex;
+            margin-bottom: -1px;
+        }
+        
+        .tab-button {
+            padding: 0.75rem 1.5rem;
+            background-color: #f1f1f1;
+            border: 1px solid #ddd;
+            border-bottom: none;
+            border-radius: 4px 4px 0 0;
+            cursor: pointer;
+            margin-right: 0.5rem;
+            transition: background-color 0.3s;
+        }
+        
+        .tab-button.active {
+            background-color: white;
+            border-bottom: 1px solid white;
+            font-weight: bold;
+            color: var(--primary);
+        }
+        
+        .tab-content {
+            display: none;
+            padding: 1.5rem;
+            border: 1px solid #ddd;
+            border-radius: 0 4px 4px 4px;
+            background-color: white;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            border-radius: 4px;
+            background-color: var(--primary);
+            color: white;
+            text-decoration: none;
+            transition: background-color 0.3s;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            margin-top: 1rem;
+        }
+        
+        .btn:hover {
+            background-color: #5a52d3;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 2rem 0;
+            color: #666;
+            background-color: #f9fafb;
+            border-top: 1px solid #eaeaea;
+        }
+        
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+            }
+            
+            header p {
+                font-size: 1rem;
+            }
+            
+            section {
+                padding: 1.5rem;
+            }
+            
+            .tab-button {
+                padding: 0.5rem 1rem;
+                font-size: 0.9rem;
+            }
+        }
+        
+        .copyright-notice {
+            font-size: 0.9em;
+            margin-top: 0.5rem;
+        }
+        .contact-info {
+            margin-top: 1rem;
+            color: #666;
+        }
+        footer a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Advanced File Converter</h1>
+            <p>Setup and Deployment Guide</p>
+        </div>
+    </header>
+    
+    <main class="container">
+        <section id="overview">
+            <h2>Overview</h2>
+            <p>This is a comprehensive guide to help you set up and deploy the Advanced File Converter application. This page appears when you first upload the project files and will be replaced by the actual application once it's properly set up.</p>
+            
+            <div class="note">
+                <strong>Note:</strong> This setup guide is only visible before the application is built and deployed. After successful deployment, users will see the actual application interface.
+            </div>
+        </section>
+        
+        <section id="prerequisites">
+            <h2>Prerequisites</h2>
+            <p>Before setting up the Advanced File Converter, ensure you have the following installed:</p>
+            <ul>
+                <li>Node.js (version 18 or higher)</li>
+                <li>npm (version 9 or higher)</li>
+                <li>Git (optional, for version control)</li>
+            </ul>
+            
+            <div class="note">
+                <strong>Checking your Node.js version:</strong>
+                <pre><code>node -v</code></pre>
+                <strong>Checking your npm version:</strong>
+                <pre><code>npm -v</code></pre>
+                
+                <p>If you need to install or update Node.js, visit <a href="https://nodejs.org/" target="_blank">nodejs.org</a>.</p>
+            </div>
+        </section>
+        
+        <section id="installation">
+            <h2>Installation Options</h2>
+            
+            <div class="tab-container">
+                <div class="tab-buttons">
+                    <button class="tab-button active" onclick="openTab(event, 'local-dev')">Local Development</button>
+                    <button class="tab-button" onclick="openTab(event, 'custom-server')">Custom Server</button>
+                    <button class="tab-button" onclick="openTab(event, 'netlify')">Netlify</button>
+                    <button class="tab-button" onclick="openTab(event, 'vercel')">Vercel</button>
+                </div>
+                
+                <!-- Local Development Tab -->
+                <div id="local-dev" class="tab-content active">
+                    <h3>Setting Up for Local Development</h3>
+                    
+                    <div class="step">
+                        <h4>Clone or unzip the project</h4>
+                        <p>If using Git:</p>
+                        <pre><code>git clone &lt;repository-url&gt;
+cd advanced-converter</code></pre>
+                        <p>If you've downloaded a ZIP file, extract it and navigate to the extracted folder.</p>
+                    </div>
+                    
+                    <div class="step">
+                        <h4>Install dependencies</h4>
+                        <pre><code>npm run install-all</code></pre>
+                        <p>This command installs dependencies for both the server and client applications.</p>
+                    </div>
+                    
+                    <div class="step">
+                        <h4>Start the development servers</h4>
+                        <pre><code>npm run dev</code></pre>
+                        <p>This command starts both the backend server and the React development server concurrently.</p>
+                        <p>The application will be available at <a href="http://localhost:3000" target="_blank">http://localhost:3000</a></p>
+                    </div>
+                </div>
+                
+                <!-- Custom Server Tab -->
+                <div id="custom-server" class="tab-content">
+                    <h3>Deploying to Your Own Server</h3>
+                    
+                    <div class="step">
+                        <h4>Upload project files to your server</h4>
+                        <p>Use SFTP, SCP, or other file transfer method to upload the project files to your server.</p>
+                    </div>
+                    
+                    <div class="step">
+                        <h4>Install dependencies</h4>
+                        <pre><code>npm run install-all</code></pre>
+                    </div>
+                    
+                    <div class="step">
+                        <h4>Build the client application</h4>
+                        <pre><code>npm run build</code></pre>
+                        <p>This creates optimized files in the <code>client/build</code> directory.</p>
+                    </div>
+                    
+                    <div class="step">
+                        <h4>Set environment variables</h4>
+                        <pre><code># Required
+export NODE_ENV=production
+
+# Optional
+export PORT=80  # or your preferred port</code></pre>
+                    </div>
+                    
+                    <div class="step">
+                        <h4>Start the server</h4>
+                        <pre><code>npm start</code></pre>
+                        <p>For persistent operation, use a process manager like PM2:</p>
+                        <pre><code>npm install -g pm2
+pm2 start npm -- start</code></pre>
+                    </div>
+                    
+                    <div class="note">
+                        <strong>Note for Apache/Nginx:</strong> If you're using Apache or Nginx as a reverse proxy, make sure to configure it to forward requests to your Node.js application.
+                    </div>
+                </div>
+                
+                <!-- Netlify Tab -->
+                <div id="netlify" class="tab-content">
+                    <h3>Deploying to Netlify</h3>
+                    
+                    <div class="step">
+                        <h4>Push your code to GitHub</h4>
+                        <p>Netlify integrates best with code hosted on GitHub, GitLab, or Bitbucket.</p>
+                    </div>
+                    
+                    <div class="step">
+                        <h4>Sign up/login to Netlify</h4>
+                        <p>Go to <a href="https://netlify.com" target="_blank">netlify.com</a> and create an account or log in.</p>
+                    </div>
+                    
+                    <div class="step">
+                        <h4>Create a new site</h4>
+                        <p>Click "New site from Git" and select your GitHub repository.</p>
+                    </div>
+                    
+                    <div class="step">
+                        <h4>Configure build settings</h4>
+                        <ul>
+                            <li><strong>Build command:</strong> <code>npm run netlify-build</code></li>
+                            <li><strong>Publish directory:</strong> <code>client/build</code></li>
+                        </ul>
+                        <p>Netlify will automatically detect the <code>netlify.toml</code> file, but you can override the settings here if needed.</p>
+                    </div>
+                    
+                    <div class="step">
+                        <h4>Set environment variables</h4>
+                        <p>Go to Site settings → Build & deploy → Environment:</p>
+                        <ul>
+                            <li><strong>NODE_ENV:</strong> <code>production</code></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="step">
+                        <h4>Deploy your site</h4>
+                        <p>Click "Deploy site" and Netlify will build and deploy your application.</p>
+                    </div>
+                    
+                    <div class="warning">
+                        <strong>Important:</strong> Netlify has limitations for serverless functions. Complex operations like video conversion might require additional setup or third-party services.
+                    </div>
+                </div>
+                
+                <!-- Vercel Tab -->
+                <div id="vercel" class="tab-content">
+                    <h3>Deploying to Vercel</h3>
+                    
+                    <div class="step">
+                        <h4>Push your code to GitHub</h4>
+                        <p>Vercel integrates seamlessly with GitHub, GitLab, and Bitbucket.</p>
+                    </div>
+                    
+                    <div class="step">
+                        <h4>Sign up/login to Vercel</h4>
+                        <p>Go to <a href="https://vercel.com" target="_blank">vercel.com</a> and create an account or log in.</p>
+                    </div>
+                    
+                    <div class="step">
+                        <h4>Import your project</h4>
+                        <p>Click "Import Project" and select your GitHub repository.</p>
+                    </div>
+                    
+                    <div class="step">
+                        <h4>Configure deployment</h4>
+                        <p>Vercel will automatically detect the <code>vercel.json</code> configuration file, so no additional settings are needed.</p>
+                    </div>
+                    
+                    <div class="step">
+                        <h4>Set environment variables</h4>
+                        <p>Go to Settings → Environment Variables to add any needed variables:</p>
+                        <ul>
+                            <li><strong>NODE_ENV:</strong> <code>production</code></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="step">
+                        <h4>Deploy your site</h4>
+                        <p>Click "Deploy" and Vercel will build and deploy your application.</p>
+                    </div>
+                    
+                    <div class="warning">
+                        <strong>Important:</strong> Vercel has execution limits for serverless functions. Heavy operations like large file conversions might require adjustments or external services.
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="troubleshooting">
+            <h2>Troubleshooting</h2>
+            
+            <h3>Common Issues</h3>
+            
+            <div class="note">
+                <strong>Node.js version issues:</strong>
+                <p>If you encounter errors related to ES modules or syntax, ensure you're using Node.js version 18 or higher.</p>
+                <pre><code>node -v</code></pre>
+            </div>
+            
+            <div class="note">
+                <strong>Port conflicts:</strong>
+                <p>If the server cannot start due to port conflicts, you can change the port in your environment variables:</p>
+                <pre><code>export PORT=3001  # or any available port</code></pre>
+            </div>
+            
+            <div class="note">
+                <strong>Build failures:</strong>
+                <p>If the build process fails, check if all dependencies are installed:</p>
+                <pre><code>npm run install-all</code></pre>
+            </div>
+            
+            <h3>Deployment Check</h3>
+            <p>You can run our deployment check script to verify your setup:</p>
+            <pre><code>npm run deploy-check</code></pre>
+            <p>This will validate that all necessary files and configurations are in place.</p>
+        </section>
+        
+        <section id="next-steps">
+            <h2>Next Steps</h2>
+            <p>After successfully deploying the Advanced File Converter, here are some suggested next steps:</p>
+            
+            <ul>
+                <li>Review the documentation at <code>/docs</code> to learn about all features</li>
+                <li>Check the architecture diagram to understand the system structure</li>
+                <li>Customize the application branding if needed (logo, colors, etc.)</li>
+                <li>Set up monitoring for your production deployment</li>
+            </ul>
+            
+            <a href="/" class="btn">Go to Application</a>
+            <a href="/docs" class="btn">View Documentation</a>
+        </section>
+    </main>
+    
+    <footer>
+        <div class="container">
+            <p>Advanced File Converter &copy; 2025 - Developed by <a href="https://github.com/dev-majharul" target="_blank">Md Majharul Islam</a></p>
+            <p class="copyright-notice">All rights reserved. This project is protected by copyright law. Unauthorized reproduction or distribution is prohibited.</p>
+            <p class="contact-info">
+                <small>
+                    GitHub: <a href="https://github.com/dev-majharul" target="_blank">dev-majharul</a> |
+                    LinkedIn: <a href="https://www.linkedin.com/in/md-majharul-islam-samir/" target="_blank">md-majharul-islam-samir</a> |
+                    Contact: +8809696039963
+                </small>
+            </p>
+        </div>
+    </footer>
+    
+    <script>
+        function openTab(evt, tabName) {
+            // Hide all tab content
+            const tabContents = document.getElementsByClassName("tab-content");
+            for (let i = 0; i < tabContents.length; i++) {
+                tabContents[i].classList.remove("active");
+            }
+            
+            // Remove active class from all tab buttons
+            const tabButtons = document.getElementsByClassName("tab-button");
+            for (let i = 0; i < tabButtons.length; i++) {
+                tabButtons[i].classList.remove("active");
+            }
+            
+            // Show the selected tab and add active class to the button
+            document.getElementById(tabName).classList.add("active");
+            evt.currentTarget.classList.add("active");
+        }
+    </script>
+</body>
+</html> 

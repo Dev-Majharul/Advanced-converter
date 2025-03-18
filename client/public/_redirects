@@ -1,0 +1,9 @@
+# Netlify redirects file
+# Redirect API calls to the serverless functions
+/api/*  /.netlify/functions/api/:splat  200
+
+# Serve static docs directly 
+/docs/*  /docs/:splat  200
+
+# Handle client-side routing - this should be last
+/*  /index.html  200 
