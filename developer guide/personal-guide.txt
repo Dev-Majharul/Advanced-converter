@@ -30,7 +30,8 @@ Netlify Deployment
         6. Click -Deploy site"
         7. Go to "Site settings- "Build & deploy" "Environment- to add environment variables:
             • NOOE_EW : production
-
+            • REACT_APP_API_URL=https://your-netlify-site.netlify.app/.netlify/functions/api
+                                (You can find this URL in the Netlify dashboard under the "Functions" tab once your function is deployed.)
 Vercel Deployment
         1. Push your code to GitHub
         2. Sign up/login to Vercel
@@ -39,6 +40,9 @@ Vercel Deployment
         5. Vercel will automatically detect the configuration from verceljson
         6. Click -Deploy"
         7. Go to "Settings" —i "Environment Variables" to add any needed variables
+                • NOOE_EW : production
+                • REACT_APP_API_URL=https://your-vercel-site.vercel.app/api
+                                (Vercel automatically provides this URL once your deployment is complete, and you can find it in the Vercel dashboard.)
 Custom Server Deployment
         1. Ensure Node.js v18+ is installed on your server
         2. Upload the project files via SFTP/SSH or git clone
@@ -49,6 +53,7 @@ Custom Server Deployment
 
                     export NODE_ENV=production
                     export PORT=80  # or your preferred port
+                    REACT_APP_API_URL=https://your-api-url.com
                 ```
         6. start the server
                 ```
